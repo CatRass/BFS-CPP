@@ -20,9 +20,10 @@ using std::string;
 
 void traverse(Node* root, Node* end);
 ostringstream backtrace(Node* root, Node* end);
+ostringstream drawTree();
 
 int main(void){
-
+    
     Node a("A");
     Node b("B");
     Node c("C");
@@ -36,20 +37,71 @@ int main(void){
     b.addNeighbour(&e);
     c.addNeighbour(&d);
 
+    char rootNode,endNode;
+    cout <<drawTree().str() << endl;
+    cout << "Choose a start node: ";
+    cin >> rootNode;
+    cout << "Choose an end node: ";
+    cin >> endNode;
+    cout << endl;
+
     Node* root;
     Node* end;
-
-    root = &a;
-    end = &e;
-
-    try {
-        traverse(root,end);
-        cout << backtrace(root,end).str();
-    } catch (int errorNum){
-        cout << "Error" << errorNum;
+    switch(rootNode){
+        case 'a':
+        case 'A':
+            root = &a;
+            break;
+        case 'b':
+        case 'B':
+            root = &b;
+            break;
+        case 'c':
+        case 'C':
+            root = &c;
+            break;
+        case 'd':
+        case 'D':
+            root = &d;
+            break;
+        case 'e':
+        case 'E':
+            root = &e;
+            break;
+        case 'f':
+        case 'F':
+            root = &f;
+            break;
+    }
+    switch(endNode){
+        case 'a':
+        case 'A':
+            end = &a;
+            break;
+        case 'b':
+        case 'B':
+            end = &b;
+            break;
+        case 'c':
+        case 'C':
+            end = &c;
+            break;
+        case 'd':
+        case 'D':
+            end = &d;
+            break;
+        case 'e':
+        case 'E':
+            end = &e;
+            break;
+        case 'f':
+        case 'F':
+            end = &f;
+            break;
     }
 
-    // cout << a.neighboursSS().str() << b.neighboursSS().str() << c.neighboursSS().str(); 
+    traverse(root,end);
+    cout << backtrace(root,end).str();
 
     return 0;
 }
@@ -102,4 +154,14 @@ ostringstream backtrace(Node* root, Node* end){
     oSS << endl;
 
     return oSS;
+}
+ostringstream drawTree(){
+    ostringstream treeSS;
+    treeSS << "Current Tree" << endl;
+    treeSS << "                  A"         << endl;
+    treeSS << "                /   \\"      << endl;
+    treeSS << "              B      C"      << endl;
+    treeSS << "           /  |       \\"    << endl;
+    treeSS << "          F   E        D"    << endl;
+    return treeSS;
 }
