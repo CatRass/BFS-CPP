@@ -20,9 +20,5 @@ ostringstream Node::neighboursSS(){
 }
 
 bool Node::hasNeighbours(){
-    if(neighbours.size() > 0){
-        return true;
-    } else {
-        return false;
-    }
+    return neighbours.size() > 0;
 }

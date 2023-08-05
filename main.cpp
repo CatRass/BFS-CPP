@@ -161,7 +161,7 @@ ostringstream drawTree(){
     treeSS << "                  A"         << endl;
     treeSS << "                /   \\"      << endl;
     treeSS << "              B      C"      << endl;
-    treeSS << "           /  |       \\"    << endl;
+    treeSS << "            / |       \\"    << endl;
     treeSS << "          F   E        D"    << endl;
     return treeSS;
 }
